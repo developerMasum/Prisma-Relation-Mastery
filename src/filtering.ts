@@ -8,6 +8,8 @@ const filtering = async () => {
   //       AND: [
   //         {
   //           published: true,
+  //         },
+  //         {
   //           title: {
   //             contains: "tx",
   //           },
@@ -18,21 +20,34 @@ const filtering = async () => {
   //   console.log(andFiltering);
 
   //   or filtering
-  const orFiltering = await prisma.post.findMany({
+  //   const orFiltering = await prisma.post.findMany({
+  //     where: {
+  //       OR: [
+  //         {
+  //           published: true,
+  //         },
+  //         {
+  //           title: {
+  //             contains: "tx",
+  //           },
+  //         },
+  //       ],
+  //     },
+  //   });
+  //   console.log(orFiltering);
+
+  // not operator
+
+  const notFiltering = await prisma.post.findMany({
     where: {
-      OR: [
+      NOT: [
         {
-          published: true,
-        },
-        {
-          title: {
-            contains: "tx",
-          },
+          title: "this is title",
         },
       ],
     },
   });
-  console.log(orFiltering);
+  console.log(notFiltering);
 };
 
 filtering();
