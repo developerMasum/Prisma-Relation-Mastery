@@ -19,6 +19,7 @@ CREATE TABLE "users" (
     "id" SERIAL NOT NULL,
     "username" TEXT NOT NULL,
     "email" TEXT NOT NULL,
+    "age" INTEGER NOT NULL DEFAULT 0,
     "role" "userRole" NOT NULL DEFAULT 'user'
 );
 
